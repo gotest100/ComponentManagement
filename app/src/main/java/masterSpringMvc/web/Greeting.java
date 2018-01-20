@@ -18,3 +18,4 @@ public class Greeting {
 		return service.getGreet(name);
 	}
 }
+	

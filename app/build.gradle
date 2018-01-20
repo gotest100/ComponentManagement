@@ -25,6 +25,9 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile 'org.webjars:materializecss:0.96.0'
+	compile 'org.webjars:jquery:2.1.4'
+	compile 'org.springframework.boot:spring-boot-starter-social-twitter'
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
