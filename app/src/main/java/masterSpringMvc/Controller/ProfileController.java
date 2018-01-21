@@ -23,7 +23,7 @@ public class ProfileController {
 		return "profile/create";
 	}
 	
-	@RequestMapping(value = "/profile", method = RequestMethod.POST)
+	@RequestMapping(value = "/profile", method = RequestMethod.POST, params = {"save"})
 	public String SaveProfile(HttpServletRequest request, RedirectAttributes attr, @Valid ProfileModel profileModel, BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) {
 			return "/profile/create";
@@ -33,6 +33,19 @@ public class ProfileController {
 		}
 		
 		return "redirect:/profile";
+	}
+	
+	@RequestMapping(value = "/profile", params = {"addTaste"})
+	public String addRow(ProfileModel profileModel) {
+		profileModel.getTastes().add(null);
+		return "profile/create";
+	}
+	@RequestMapping(value = "/profile", params = {"removeTaste"})
+	public String removeRow(ProfileModel profileModel, HttpServletRequest req) {
+		Integer rowId = Integer.valueOf(req.
+		getParameter("removeTaste"));
+		profileModel.getTastes().remove(rowId.intValue());
+		return "profile/create";
 	}
 	
 	@ModelAttribute("localDateFormat")
